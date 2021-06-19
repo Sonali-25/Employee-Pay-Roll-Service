@@ -3,7 +3,7 @@ package com.magic.employeepayroll;
 import java.sql.*;
 
 public class PayRollConnection {
-    private String url = "jdbc:mysql://localhost:3306/address_book_db?useSSL=false";
+    private String url = "jdbc:mysql://localhost:3306/pay_roll?useSSL=false";
     private String userName = "root";
     private String password = "SonaliJha@256";
 
