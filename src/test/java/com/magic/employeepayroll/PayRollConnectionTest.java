@@ -76,5 +76,16 @@ public class PayRollConnectionTest {
         resultSet1.next();
         System.out.println("Average Salary of Male " + resultSet1.getString(1));
     }
+    @Test
+    public void findMinimum() throws SQLException{
+        Connection dbConnection = new PayRollConnection().getDBConnection();
+        Statement statement = dbConnection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select min(Basic_Pay) from employee_pay_roll where Gender = 'F' ");
+        resultSet.next();
+        System.out.println("Minimum Salary of Female " + resultSet.getString(1));
+        ResultSet resultSet1 = statement.executeQuery("select min(Basic_Pay) from employee_pay_roll where Gender = 'M' ");
+        resultSet1.next();
+        System.out.println("Minimum Salary of Male " + resultSet1.getString(1));
+    }
 
 }
