@@ -91,10 +91,10 @@ public class PayRollConnectionTest {
     public void findMaximum() throws SQLException{
         Connection dbConnection = new PayRollConnection().getDBConnection();
         Statement statement = dbConnection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select max(Basic_Pay) from employee_pay_roll where Gender = 'F' ");
+        ResultSet resultSet = statement.executeQuery("select MAX(Basic_Pay) from employee_pay_roll where Gender = 'F' ");
         resultSet.next();
         System.out.println("Maximum Salary of Female " + resultSet.getString(1));
-        ResultSet resultSet1 = statement.executeQuery("select max(Basic_Pay) from employee_pay_roll where Gender = 'M' ");
+        ResultSet resultSet1 = statement.executeQuery("select MAX(Basic_Pay) from employee_pay_roll where Gender = 'M' ");
         resultSet1.next();
         System.out.println("Maximum Salary of Male " + resultSet1.getString(1));
     }
