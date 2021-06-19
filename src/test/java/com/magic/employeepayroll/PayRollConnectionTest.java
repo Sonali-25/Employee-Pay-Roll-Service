@@ -49,6 +49,20 @@ public class PayRollConnectionTest {
         Statement statement = dbConnection.createStatement();
         ResultSet resultSet = statement.executeQuery("select SUM(Basic_Pay) from employee_pay_roll where Gender = 'F' ");
         resultSet.next();
-        System.out.println(resultSet.getString(1));
+        System.out.println("Sum of Female Salary " + resultSet.getString(1));
+        ResultSet resultSet1 = statement.executeQuery("select SUM(Basic_Pay) from employee_pay_roll where Gender = 'M' ");
+        resultSet1.next();
+        System.out.println("Sum of Male Salary " + resultSet1.getString(1));
+    }
+    @Test
+    public void findCount() throws SQLException{
+        Connection dbConnection = new PayRollConnection().getDBConnection();
+        Statement statement = dbConnection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select Count(Basic_Pay) from employee_pay_roll where Gender = 'F' ");
+        resultSet.next();
+        System.out.println("Count of Female " + resultSet.getString(1));
+        ResultSet resultSet1 = statement.executeQuery("select Count(Basic_Pay) from employee_pay_roll where Gender = 'M' ");
+        resultSet1.next();
+        System.out.println("Count of Male " + resultSet1.getString(1));
     }
 }
