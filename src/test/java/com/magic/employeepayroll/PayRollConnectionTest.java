@@ -43,4 +43,12 @@ public class PayRollConnectionTest {
             System.out.println(resultSet.getString("Name"));
         }
     }
+    @Test
+    public void findSum() throws SQLException{
+        Connection dbConnection = new PayRollConnection().getDBConnection();
+        Statement statement = dbConnection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select SUM(Basic_Pay) from employee_pay_roll where Gender = 'F' ");
+        resultSet.next();
+        System.out.println(resultSet.getString(1));
+    }
 }
